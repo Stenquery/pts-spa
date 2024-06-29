@@ -1,0 +1,9 @@
+<div class="container mt-2 text-primary" *ngIf="authService.isAuthenticated()">
+    <h5>Kategoriler</h5>
+    <ul class="list-group">
+        <li [class]="setAllCategoryClass()" (click)="setcurrentCategoryToAll()" routerLink="works" >Tüm Kategoriler</li>
+        <li [class]="getCurrentCategory(category)" (click)="setCurrentCategory(category)"
+        routerLink="/works/category/{{category.categoryId}}"
+            *ngFor="let category of categories">{{category.name}}</li>
+    </ul>
+</div>

@@ -1,0 +1,16 @@
+<li *ngIf="cartItems"  class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    İş Listesi
+  </a>
+  <ul class="dropdown-menu">
+    <li><a *ngFor="let cartItem of cartItems" class="dropdown-item" >
+      <button type="button" class="btn btn-primary" style="width: 100%;"><span style="float: left;">{{cartItem.work.title}}</span>
+        <span class="badge text-bg-danger" (click)="removeFromCart(cartItem)" style="margin-top: 2px; float: right;">Kaldır</span>
+        <span class="badge text-bg-secondary"  style="margin-top: 2px;float: right;margin-right: 3px;">{{cartItem.quantity}}</span>
+        
+      </button>
+      </a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Listeye Git</a></li>
+  </ul>
+</li>

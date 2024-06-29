@@ -1,0 +1,20 @@
+<div class="content  mt-3" style="align-items: center;">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header text-center"><h5 class="title">İş Ekle</h5></div>
+            <div class="card-body">
+                <form [formGroup]="workAddForm">
+                    <div class="form-group">
+                        <label for="title " class="mt-1">İş Başlık</label>
+                        <input type="text" name="" id="title" formControlName="title" class="form-control mt-1" placeholder="İşin Adı">
+                        <label for="description" class="mt-1">İşin Tanımı</label>
+                        <input type="text" name="" id="description" formControlName="description" class="form-control mt-1" placeholder="İşin Tanımı">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-end">
+                <button class="btn btn-primary gap-3 col-3" (click)="add()" style="margin-right: 5px;">Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>

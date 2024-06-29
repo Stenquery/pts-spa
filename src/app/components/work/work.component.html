@@ -1,0 +1,39 @@
+<div class="container mt-2" >
+    <h5>İşler</h5>
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Ara</label>
+        <input type="text" class="form-control" [(ngModel)]="filterText" id="filterText" placeholder="Arama ifadesini giriniz.">
+      </div>
+      <p>{{filterText}}</p>
+    <table *ngIf="dataLoaded" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>İşin Tanımı</th>
+                <th>Kayıt Tarihi</th>
+                <th>Müşteri</th>
+                <th>İşin Adı</th>
+                <th>Kullanıcı</th>
+                <th>Durum</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let work of works | filterPipe:filterText;let i=index ">
+                <td>{{i+1}}</td>
+                 <td>{{work.description | uppercase}}</td>
+                <td>{{work.recordDate}}</td>
+                <td>{{work.customerId}}</td>
+                <td>{{work.title}}</td>
+                <td>{{work.userId|currency:"₺"}}</td> <!--Built-in Pipe-->
+                <td>{{work.stateId | vatAdded:10}}</td> <!-- Custom Pipe ( 10 parametre)-->
+                <td><button type="button" class="btn btn-primary" (click)="addToCart(work)">Ekle</button></td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="!dataLoaded" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
